@@ -21,20 +21,7 @@
 
 ---
 
-**Tab. 3. Regularization/temperature baselines: Qwen2.5-Math-7B → 1.5B (math).**
-
-| Method | GSM8K | MATH | Gaokao23 | Avg |
-|--------|-------|------|----------|-----|
-| Soft KD | [TBD] | [TBD] | [TBD] | [TBD] |
-| +Entropy reg. | [TBD] | [TBD] | [TBD] | [TBD] |
-| T: high→low | [TBD] | [TBD] | [TBD] | [TBD] |
-| T: low→high | [TBD] | [TBD] | [TBD] | [TBD] |
-| Random-label mixing | [TBD] | [TBD] | [TBD] | [TBD] |
-| **Hybrid KD (ours)** | **[TBD]** | **[TBD]** | **[TBD]** | **[TBD]** |
-
----
-
-**Tab. 4. Regularization/temperature baselines: Qwen2.5-Coder-7B → 1.5B (code).**
+**Tab. 3. Regularization/temperature baselines: Qwen2.5-Coder-7B → 1.5B (code).**
 
 | Method | HE | HE+ | MBPP | MBPP+ | Avg |
 |--------|-----|------|------|-------|-----|
@@ -47,7 +34,7 @@
 
 ---
 
-**Tab. 5. Regularization/temperature baselines: Llama3.1-8B → 1B (general reasoning).**
+**Tab. 4. Regularization/temperature baselines: Llama3.1-8B → 1B (general reasoning).**
 
 | Method | BBH | MMLU | ARC-C | ThmQA | Avg |
 |--------|-----|------|-------|-------|-----|
@@ -60,7 +47,7 @@
 
 ---
 
-**Tab. 6. Regularization/temperature baselines: DeepSeek-Coder-6.7B → 1.3B (code).**
+**Tab. 5. Regularization/temperature baselines: DeepSeek-Coder-6.7B → 1.3B (code).**
 
 | Method | HE | HE+ | MBPP | MBPP+ | Avg |
 |--------|-----|------|------|-------|-----|

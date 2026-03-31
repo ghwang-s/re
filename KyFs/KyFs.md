@@ -31,18 +31,7 @@
 
 ---
 
-**Tab. 4. On-policy + hybrid KD: Qwen2.5-Math-7B → 1.5B.**
-
-| Method | GSM8K | MATH | Gaokao23 | Avg |
-|--------|-------|------|----------|-----|
-| Off-policy soft KD | [TBD] | [TBD] | [TBD] | [TBD] |
-| Off-policy hybrid KD | [TBD] | [TBD] | [TBD] | [TBD] |
-| On-policy soft KD | [TBD] | [TBD] | [TBD] | [TBD] |
-| **On-policy + hybrid KD** | **[TBD]** | **[TBD]** | **[TBD]** | **[TBD]** |
-
----
-
-**Tab. 5. New pair: Qwen2.5-32B → 3B (general reasoning).** Added during rebuttal to test larger capacity gap (10×).
+**Tab. 4. New pair: Qwen2.5-32B → 3B (general reasoning).** Added during rebuttal to test larger capacity gap (10×).
 
 | Method | BBH | MMLU | ARC-C | ThmQA | Avg |
 |--------|-----|------|-------|-------|-----|
@@ -52,7 +41,7 @@
 
 ---
 
-**Tab. 6. New pair: Qwen2.5-Coder-7B → 1.5B (code).** Added during rebuttal to test code generation domain.
+**Tab. 5. New pair: Qwen2.5-Coder-7B → 1.5B (code).** Added during rebuttal to test code generation domain.
 
 | Method | HE | HE+ | MBPP | MBPP+ | Avg |
 |--------|-----|------|------|-------|-----|
@@ -62,7 +51,7 @@
 
 ---
 
-**Tab. 7. Training cost comparison (Qwen2.5-7B → 3B, 4×A100 80GB).** Hybrid adds negligible per-step cost over soft KD.
+**Tab. 6. Training cost comparison (Qwen2.5-7B → 3B, 4×A100 80GB).** Hybrid adds negligible per-step cost over soft KD.
 
 | Method | Extra computation | s/step |
 |--------|------------------|--------|

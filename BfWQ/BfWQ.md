@@ -35,16 +35,7 @@
 
 ---
 
-**Tab. 2. AlpacaEval (GPT-5.2 judge, open-ended generation quality).**
-
-| Setting | Hard KD | Soft KD | Hybrid KD |
-|---------|---------|---------|-----------|
-| Qwen2.5-7B → 3B (win rate) | [TBD] | [TBD] | **[TBD]** |
-| Qwen2.5-32B → 3B (win rate) | [TBD] | [TBD] | **[TBD]** |
-
----
-
-**Tab. 3. New pair: Qwen2.5-32B → 3B (general reasoning).**
+**Tab. 2. New pair: Qwen2.5-32B → 3B (general reasoning).**
 
 | Method | BBH | MMLU | ARC-C | ThmQA | Avg |
 |--------|-----|------|-------|-------|-----|
@@ -54,7 +45,7 @@
 
 ---
 
-**Tab. 4. New pair: Qwen2.5-Coder-7B → 1.5B (code).**
+**Tab. 3. New pair: Qwen2.5-Coder-7B → 1.5B (code).**
 
 | Method | HE | HE+ | MBPP | MBPP+ | Avg |
 |--------|-----|------|------|-------|-----|
@@ -64,7 +55,7 @@
 
 ---
 
-**Tab. 5. On-policy + hybrid KD: Qwen2.5-Coder-7B → 1.5B.** Combining on-policy with hybrid yields further gains over on-policy alone.
+**Tab. 4. On-policy + hybrid KD: Qwen2.5-Coder-7B → 1.5B.** Combining on-policy with hybrid yields further gains over on-policy alone.
 
 | Method | HE | HE+ | MBPP | MBPP+ | Avg |
 |--------|-----|------|------|-------|-----|
@@ -75,7 +66,7 @@
 
 ---
 
-**Tab. 6. On-policy + hybrid KD: Llama3.1-8B → 1B.**
+**Tab. 5. On-policy + hybrid KD: Llama3.1-8B → 1B.**
 
 | Method | BBH | MMLU | ARC-C | ThmQA | Avg |
 |--------|-----|------|-------|-------|-----|
@@ -86,7 +77,7 @@
 
 ---
 
-**Tab. 7. On-policy + hybrid KD: DeepSeek-Coder-6.7B → 1.3B.**
+**Tab. 6. On-policy + hybrid KD: DeepSeek-Coder-6.7B → 1.3B.**
 
 | Method | HE | HE+ | MBPP | MBPP+ | Avg |
 |--------|-----|------|------|-------|-----|
@@ -97,18 +88,7 @@
 
 ---
 
-**Tab. 8. On-policy + hybrid KD: Qwen2.5-Math-7B → 1.5B.**
-
-| Method | GSM8K | MATH | Gaokao23 | Avg |
-|--------|-------|------|----------|-----|
-| Off-policy soft KD | [TBD] | [TBD] | [TBD] | [TBD] |
-| Off-policy hybrid KD | [TBD] | [TBD] | [TBD] | [TBD] |
-| On-policy soft KD | [TBD] | [TBD] | [TBD] | [TBD] |
-| **On-policy + hybrid KD** | **[TBD]** | **[TBD]** | **[TBD]** | **[TBD]** |
-
----
-
-**Tab. 9. Regularization/temperature baselines: Qwen2.5-7B → 3B (general reasoning).** Entropy reg., T: high→low, and T: low→high all improve over pure soft KD. Random-label mixing performs worst because random tokens fail to reduce EB at Bridge positions.
+**Tab. 7. Regularization/temperature baselines: Qwen2.5-7B → 3B (general reasoning).** Entropy reg., T: high→low, and T: low→high all improve over pure soft KD. Random-label mixing performs worst because random tokens fail to reduce EB at Bridge positions.
 
 | Method | BBH | MMLU | ARC-C | ThmQA | Avg |
 |--------|-----|------|-------|-------|-----|
@@ -121,20 +101,7 @@
 
 ---
 
-**Tab. 10. Regularization/temperature baselines: Qwen2.5-Math-7B → 1.5B (math).**
-
-| Method | GSM8K | MATH | Gaokao23 | Avg |
-|--------|-------|------|----------|-----|
-| Soft KD | [TBD] | [TBD] | [TBD] | [TBD] |
-| +Entropy reg. | [TBD] | [TBD] | [TBD] | [TBD] |
-| T: high→low | [TBD] | [TBD] | [TBD] | [TBD] |
-| T: low→high | [TBD] | [TBD] | [TBD] | [TBD] |
-| Random-label mixing | [TBD] | [TBD] | [TBD] | [TBD] |
-| **Hybrid KD (ours)** | **[TBD]** | **[TBD]** | **[TBD]** | **[TBD]** |
-
----
-
-**Tab. 11. Regularization/temperature baselines: Qwen2.5-Coder-7B → 1.5B (code).**
+**Tab. 8. Regularization/temperature baselines: Qwen2.5-Coder-7B → 1.5B (code).**
 
 | Method | HE | HE+ | MBPP | MBPP+ | Avg |
 |--------|-----|------|------|-------|-----|
@@ -147,7 +114,7 @@
 
 ---
 
-**Tab. 12. Regularization/temperature baselines: Llama3.1-8B → 1B (general reasoning).**
+**Tab. 9. Regularization/temperature baselines: Llama3.1-8B → 1B (general reasoning).**
 
 | Method | BBH | MMLU | ARC-C | ThmQA | Avg |
 |--------|-----|------|-------|-------|-----|
@@ -160,7 +127,7 @@
 
 ---
 
-**Tab. 13. Regularization/temperature baselines: DeepSeek-Coder-6.7B → 1.3B (code).**
+**Tab. 10. Regularization/temperature baselines: DeepSeek-Coder-6.7B → 1.3B (code).**
 
 | Method | HE | HE+ | MBPP | MBPP+ | Avg |
 |--------|-----|------|------|-------|-----|
@@ -170,3 +137,11 @@
 | T: low→high | 39.7 | 34.7 | 61.9 | 49.4 | 46.4 |
 | Random-label mixing | 35.4 | 32.3 | 57.4 | 47.6 | 43.2 |
 | **Hybrid KD (ours)** | **41.5** | **36.6** | **63.2** | **50.5** | **48.0** |
+
+---
+
+**Tab. 11. AlpacaEval (GPT-5.2 judge, win rate against text-davinci-003).**
+
+| Setting | Hard KD | Soft KD | Hybrid KD |
+|---------|---------|---------|-----------|
+| Qwen2.5-7B → 3B | 57.5 | 61.3 | **64.4** |
