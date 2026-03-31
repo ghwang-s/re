@@ -1,6 +1,6 @@
-**Tab. 1. Synthetic experiment results across 3 domains.** We synthesize sequences in 3 domains (Code, Math, Dialogue), each with ~120–180 token vocabulary, 512 training + 128 test sequences, and oracle Bridge/Garden annotations. Teacher: 3-layer 128-dim 4-head Transformer, trained 4 epochs (AdamW, lr 3e-4). Student: 2-layer 64-dim, distilled under Hard KD (CE on teacher argmax), Soft KD (forward KL), and Hybrid (λ·soft + (1−λ)·hard). Ground-truth κ computed via path sampling. EB = KL on student-generated sequences minus KL on teacher-forced prefixes. **Hard KD achieves lower Bridge EB in all 3 domains; Soft KD achieves lower Garden EB in Code/Math; Hybrid achieves lowest overall EB.**
+**Tab. 1. Synthetic experiment results across 3 domains.** We synthesize sequences in 3 domains (Code, Math, Dialogue), each with ~120–180 token vocabulary, 512 training + 128 test sequences, and ground-truth Bridge/Garden annotations. Teacher: 3-layer 128-dim 4-head Transformer, trained 4 epochs (AdamW, lr 3e-4). Student: 2-layer 64-dim, distilled under Hard KD (CE on teacher argmax), Soft KD (forward KL), and Hybrid (λ·soft + (1−λ)·hard). Ground-truth κ computed via path sampling. EB = KL on student-generated sequences minus KL on teacher-forced prefixes. **Hard KD achieves lower Bridge EB in all 3 domains; Soft KD achieves lower Garden EB in Code/Math; Hybrid achieves lowest overall EB.**
 
-**EB decomposition by oracle role** (lower = less error accumulation):
+**EB decomposition** (lower = less error accumulation):
 
 |Domain|Hard Bridge EB|Soft Bridge EB|Hard Garden EB|Soft Garden EB|
 |-|-|-|-|-|
