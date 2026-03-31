@@ -1,4 +1,4 @@
-**Tab. 1. Synthetic experiment results across 3 domains.** Sequences synthesized in Code, Math, Dialogue (~120–180 token vocabulary, 512 train + 128 test each), with ground-truth Bridge/Garden annotations and κ computed via path sampling. **Hard KD achieves lower Bridge EB in all 3 domains; Soft KD achieves lower Garden EB in all 3 domains; Hybrid achieves lowest overall EB.**
+**Tab. 1. Synthetic experiment results across 3 domains.** Sequences synthesized in Code, Math, Dialogue (~120–180 token vocabulary, 512 train + 128 test each), with κ computed via path sampling. **Hard KD achieves lower Bridge EB in all 3 domains; Soft KD achieves lower Garden EB in all 3 domains; Hybrid achieves lowest overall EB.**
 
 **EB decomposition** (lower = less error accumulation):
 
