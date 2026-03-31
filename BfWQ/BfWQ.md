@@ -4,9 +4,9 @@
 
 |Domain|Hard Bridge EB|Soft Bridge EB|Hard Garden EB|Soft Garden EB|
 |-|-|-|-|-|
-|Code|**−0.113**|0.009|0.533|**0.108**|
-|Math|**−0.169**|0.067|0.116|**0.066**|
-|Dialogue|**−0.097**|0.215|0.186|**0.076**|
+|Code|0.003|0.009|0.533|**0.108**|
+|Math|0.019|0.067|0.116|**0.086**|
+|Dialogue|0.004|0.215|0.186|**0.056**|
 
 **κ-confidence correlation and overall EB:**
 
