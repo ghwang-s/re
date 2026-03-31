@@ -16,7 +16,19 @@
 | Math | **0.70** | 0.068 | 0.081 | **0.049** |
 | Dialogue | **0.80** | 0.032 | 0.070 | **0.001** |
 
-**Synthetic experiment visualizations:** see [BfWQ/synthetic_figures/](../BfWQ/synthetic_figures/)
+**Fig. 1. κ–confidence scatter (3 domains).** Pearson r = 0.91 (Code), 0.70 (Math), 0.80 (Dialogue).
+
+<img src="../BfWQ/synthetic_figures/kappa_confidence_final.png" width="850"/>
+
+**Fig. 2. EB decomposition (Code domain).**
+
+<img src="../BfWQ/synthetic_figures/code_eb_decomposition.png" width="750"/>
+
+**Fig. 3. Token-level κ heatmap (Code, sample 004).**
+
+<img src="../BfWQ/synthetic_figures/heatmaps/code/sample_004_kappa_heatmap.png" width="650"/>
+
+Math and Dialogue results: [BfWQ/synthetic_figures/](../BfWQ/synthetic_figures/)
 
 ---
 
