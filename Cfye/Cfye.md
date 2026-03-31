@@ -1,12 +1,12 @@
-**Tab. 1. Synthetic experiment results across 3 domains.** Sequences synthesized in Code, Math, Dialogue (~120–180 token vocabulary, 512 train + 128 test each), with ground-truth Bridge/Garden annotations and κ computed via path sampling. **Hard KD achieves lower Bridge EB in all 3 domains; Soft KD achieves lower Garden EB in Code/Math; Hybrid achieves lowest overall EB.**
+**Tab. 1. Synthetic experiment results across 3 domains.** Sequences synthesized in Code, Math, Dialogue (~120–180 token vocabulary, 512 train + 128 test each), with ground-truth Bridge/Garden annotations and κ computed via path sampling. **Hard KD achieves lower Bridge EB in all 3 domains; Soft KD achieves lower Garden EB in all 3 domains; Hybrid achieves lowest overall EB.**
 
 **EB decomposition** (lower = less error accumulation):
 
 | Domain | Hard Bridge EB | Soft Bridge EB | Hard Garden EB | Soft Garden EB |
 |--------|---------------|----------------|----------------|----------------|
-| Code | **−0.113** | 0.009 | 0.533 | **0.108** |
-| Math | **−0.169** | 0.067 | 0.116 | **0.066** |
-| Dialogue | **−0.097** | 0.215 | −0.186 | −0.076 |
+| Code | 0.003 | 0.009 | 0.533 | **0.108** |
+| Math | 0.019 | 0.067 | 0.116 | **0.086** |
+| Dialogue | 0.004 | 0.215 | 0.186 | **0.056** |
 
 **κ-confidence correlation and overall EB:**
 
@@ -16,7 +16,7 @@
 | Math | **0.70** | 0.068 | 0.081 | **0.049** |
 | Dialogue | **0.80** | 0.032 | 0.070 | **0.001** |
 
-**Synthetic experiment visualizations:** see [synthetic_figures/](synthetic_figures/)
+**Synthetic experiment visualizations:** see [BfWQ/synthetic_figures/](../BfWQ/synthetic_figures/)
 
 ---
 
