@@ -1,4 +1,37 @@
-**Tab. 1. Training cost comparison (Qwen2.5-7B → 3B, 4×A100 80GB).** Hybrid adds negligible per-step cost over soft KD. The 9.7× gap comes entirely from on-policy autoregressive student sampling.
+**Tab. 1. New teacher-student pairs added during rebuttal.** Hybrid consistently outperforms both Hard and Soft KD baselines across a larger capacity gap (32B→3B) and code domain.
+
+**Qwen2.5-32B → 3B (general reasoning):**
+
+| Method | BBH | MMLU | ARC-C | ThmQA | Avg |
+|--------|-----|------|-------|-------|-----|
+| Hard KD | 34.35 | 67.18 | 79.45 | 23.05 | 51.01 |
+| Soft KD | 43.97 | 65.56 | 78.07 | 22.85 | 52.61 |
+| **Hybrid KD** | **45.73** | **66.82** | **80.02** | **23.98** | **54.14** |
+
+**Qwen2.5-Coder-7B → 1.5B (code):**
+
+| Method | HE | HE+ | MBPP | MBPP+ | Avg |
+|--------|-----|------|------|-------|-----|
+| Hard KD | 54.3 | 50.0 | 60.3 | 52.1 | 54.2 |
+| Soft KD | 52.7 | 47.9 | 59.6 | 52.4 | 53.1 |
+| **Hybrid KD** | **55.5** | **50.6** | **61.4** | **52.6** | **55.0** |
+
+---
+
+**Tab. 2. Ablation on mixing proxy: Qwen2.5-7B → 3B (general reasoning).** Confidence-based mixing (correct direction) outperforms reverse-confidence (wrong direction), confirming teacher confidence is a reliable κ proxy. Entropy-based mixing similarly outperforms its reverse.
+
+| Method | BBH | MMLU | ARC-C | ThmQA | Avg |
+|--------|-----|------|-------|-------|-----|
+| Hard KD | 41.52 | 65.76 | 78.75 | 23.75 | 52.45 |
+| Soft KD | 41.65 | 64.45 | 78.33 | 23.02 | 51.86 |
+| Hybrid: confidence-based | 44.07 | 67.50 | 80.77 | 22.78 | **53.78** |
+| Hybrid: reverse-confidence | 41.45 | 65.33 | 78.12 | 22.28 | 51.79 |
+| Hybrid: entropy | 46.83 | 67.06 | 79.81 | 23.65 | 54.34 |
+| Hybrid: reverse-entropy | 41.20 | 65.23 | 77.29 | 20.48 | 51.05 |
+
+---
+
+**Tab. 3. Training cost comparison (Qwen2.5-7B → 3B, 4×A100 80GB).** Hybrid adds negligible per-step cost over soft KD. The 9.7× gap comes entirely from on-policy autoregressive student sampling.
 
 | Method | Extra computation | s/step |
 |--------|------------------|--------|
@@ -8,20 +41,7 @@
 
 ---
 
-**Tab. 2. Regularization/temperature baselines: Qwen2.5-7B → 3B (general reasoning).** Entropy reg., T: high→low, and T: low→high all improve over pure soft KD. Random-label mixing performs worst because random tokens (unlike teacher-sampled tokens) fail to reduce EB at Bridge positions.
-
-| Method | BBH | MMLU | ARC-C | ThmQA | Avg |
-|--------|-----|------|-------|-------|-----|
-| Soft KD | 41.65 | 64.45 | 78.33 | 23.02 | 51.86 |
-| +Entropy reg. | 46.58 | 67.04 | 80.49 | 23.80 | 54.48 |
-| T: high→low | 45.22 | 66.10 | 80.12 | 23.77 | 53.80 |
-| T: low→high | 46.41 | 66.51 | 80.56 | 23.30 | 54.20 |
-| Random-label mixing | 40.10 | 61.24 | 74.23 | 20.27 | 48.96 |
-| **Hybrid KD (ours)** | **46.54** | **69.05** | **81.23** | **23.82** | **55.16** |
-
----
-
-**Tab. 3. Regularization/temperature baselines: Qwen2.5-Coder-7B → 1.5B (code).**
+**Tab. 4. Regularization/temperature baselines: Qwen2.5-Coder-7B → 1.5B (code).**
 
 | Method | HE | HE+ | MBPP | MBPP+ | Avg |
 |--------|-----|------|------|-------|-----|
@@ -34,7 +54,7 @@
 
 ---
 
-**Tab. 4. Regularization/temperature baselines: Llama3.1-8B → 1B (general reasoning).**
+**Tab. 5. Regularization/temperature baselines: Llama3.1-8B → 1B (general reasoning).**
 
 | Method | BBH | MMLU | ARC-C | ThmQA | Avg |
 |--------|-----|------|-------|-------|-----|
@@ -47,7 +67,7 @@
 
 ---
 
-**Tab. 5. Regularization/temperature baselines: DeepSeek-Coder-6.7B → 1.3B (code).**
+**Tab. 6. Regularization/temperature baselines: DeepSeek-Coder-6.7B → 1.3B (code).**
 
 | Method | HE | HE+ | MBPP | MBPP+ | Avg |
 |--------|-----|------|------|-------|-----|

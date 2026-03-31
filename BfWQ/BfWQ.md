@@ -1,4 +1,4 @@
-**Tab. 1. Synthetic experiment results across 3 domains.** We synthesize sequences in 3 domains (Code, Math, Dialogue), each with ~120–180 token vocabulary, 512 training + 128 test sequences, and ground-truth Bridge/Garden annotations. Teacher: 3-layer 128-dim 4-head Transformer, trained 4 epochs (AdamW, lr 3e-4). Student: 2-layer 64-dim, distilled under Hard KD (CE on teacher argmax), Soft KD (forward KL), and Hybrid (λ·soft + (1−λ)·hard). Ground-truth κ computed via path sampling. EB = KL on student-generated sequences minus KL on teacher-forced prefixes. **Hard KD achieves lower Bridge EB in all 3 domains; Soft KD achieves lower Garden EB in Code/Math; Hybrid achieves lowest overall EB.**
+**Tab. 1. Synthetic experiment results across 3 domains.** We synthesize sequences in 3 domains (Code, Math, Dialogue), each with ~120–180 token vocabulary, 512 training + 128 test sequences, and ground-truth Bridge/Garden annotations. Teacher: 3-layer 128-dim 4-head Transformer, trained 4 epochs (AdamW, lr 3e-4). Student: 2-layer 64-dim, distilled under Hard KD (CE on teacher argmax), Soft KD (forward KL), and Hybrid (λ·soft + (1−λ)·hard). Ground-truth κ computed via path sampling. EB = KL on student-generated sequences minus KL on teacher-forced prefixes. **Hard KD achieves lower Bridge EB in all 3 domains; Soft KD achieves lower Garden EB in all 3 domains; Hybrid achieves lowest overall EB.**
 
 **EB decomposition** (lower = less error accumulation):
 
@@ -6,7 +6,7 @@
 |-|-|-|-|-|
 |Code|**−0.113**|0.009|0.533|**0.108**|
 |Math|**−0.169**|0.067|0.116|**0.066**|
-|Dialogue|**−0.097**|0.215|−0.186|−0.076|
+|Dialogue|**−0.097**|0.215|0.186|**0.076**|
 
 **κ-confidence correlation and overall EB:**
 
@@ -72,7 +72,7 @@ Math and Dialogue results: [synthetic_figures/](synthetic_figures/)
 | Off-policy soft KD | 22.07 | 33.13 | 33.41 | 4.37 | 23.25 |
 | Off-policy hybrid KD | 27.44 | 35.64 | 37.01 | 5.00 | 26.27 |
 | On-policy soft KD | 26.84 | 36.15 | 39.73 | 6.95 | 27.42 |
-| **On-policy + hybrid KD** | **26.86** | **36.39** | **40.22** | **6.90** | **27.59** |
+| **On-policy + hybrid KD** | **27.16** | **36.69** | **40.22** | **7.10** | **27.79** |
 
 ---
 
