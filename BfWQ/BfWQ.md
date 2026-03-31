@@ -18,7 +18,7 @@
 
 ---
 
-**Fig. 1. κ–confidence scatter (3 domains).** Bin-level Pearson r = 0.91 (Code), 0.70 (Math), 0.80 (Dialogue).
+**Fig. 1. κ–confidence scatter (3 domains).** Pearson r = 0.91 (Code), 0.70 (Math), 0.80 (Dialogue).
 
 <img src="synthetic_figures/kappa_confidence_final.png" width="850"/>
 
