@@ -22,13 +22,15 @@
 
 <img src="synthetic_figures/kappa_confidence_final.png" width="850"/>
 
-**Fig. 2. EB decomposition (Code domain).** Math and Dialogue: [synthetic_figures/math_eb_decomposition.png](synthetic_figures/math_eb_decomposition.png) · [synthetic_figures/dialogue_eb_decomposition.png](synthetic_figures/dialogue_eb_decomposition.png)
+**Fig. 2. EB decomposition (Code domain).**
 
 <img src="synthetic_figures/code_eb_decomposition.png" width="750"/>
 
-**Fig. 3. Token-level κ heatmap (Code, sample 004).** Full set (5 samples × 3 domains): [synthetic_figures/heatmaps/](synthetic_figures/heatmaps/)
+**Fig. 3. Token-level κ heatmap (Code, sample 004).**
 
 <img src="synthetic_figures/heatmaps/code/sample_004_kappa_heatmap.png" width="650"/>
+
+Math and Dialogue results: [synthetic_figures/](synthetic_figures/)
 
 ---
 
