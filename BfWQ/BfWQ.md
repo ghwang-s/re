@@ -20,29 +20,15 @@
 
 **Fig. 1. κ–confidence scatter (3 domains).** Bin-level Pearson r = 0.91 (Code), 0.70 (Math), 0.80 (Dialogue).
 
-<img src="synthetic_figures/kappa_confidence_final.png" width="700"/>
+<img src="synthetic_figures/kappa_confidence_final.png" width="850"/>
 
-**Fig. 2. EB decomposition by region.**
+**Fig. 2. EB decomposition (Code domain).** Math and Dialogue: [synthetic_figures/math_eb_decomposition.png](synthetic_figures/math_eb_decomposition.png) · [synthetic_figures/dialogue_eb_decomposition.png](synthetic_figures/dialogue_eb_decomposition.png)
 
-<img src="synthetic_figures/code_eb_decomposition.png" width="600"/>
+<img src="synthetic_figures/code_eb_decomposition.png" width="750"/>
 
-<img src="synthetic_figures/math_eb_decomposition.png" width="600"/>
+**Fig. 3. Token-level κ heatmap (Code, sample 004).** Full set (5 samples × 3 domains): [synthetic_figures/heatmaps/](synthetic_figures/heatmaps/)
 
-<img src="synthetic_figures/dialogue_eb_decomposition.png" width="600"/>
-
-**Fig. 3. Token-level κ heatmaps** (representative samples; full set of 5×3 in [synthetic_figures/heatmaps/](synthetic_figures/heatmaps/)).
-
-*Code (sample 004):*
-
-<img src="synthetic_figures/heatmaps/code/sample_004_kappa_heatmap.png" width="500"/>
-
-*Math (sample 051):*
-
-<img src="synthetic_figures/heatmaps/math/sample_051_kappa_heatmap.png" width="500"/>
-
-*Dialogue (sample 039):*
-
-<img src="synthetic_figures/heatmaps/dialogue/sample_039_kappa_heatmap.png" width="500"/>
+<img src="synthetic_figures/heatmaps/code/sample_004_kappa_heatmap.png" width="650"/>
 
 ---
 
