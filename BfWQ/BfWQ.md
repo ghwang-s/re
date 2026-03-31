@@ -18,7 +18,31 @@
 
 ---
 
-**Synthetic experiment visualizations:** see [synthetic_figures/](synthetic_figures/)
+**Fig. 1. κ–confidence scatter (3 domains).** Bin-level Pearson r = 0.91 (Code), 0.70 (Math), 0.80 (Dialogue).
+
+![κ-confidence](synthetic_figures/kappa_confidence_final.png)
+
+**Fig. 2. EB decomposition by region.**
+
+![Code EB](synthetic_figures/code_eb_decomposition.png)
+
+![Math EB](synthetic_figures/math_eb_decomposition.png)
+
+![Dialogue EB](synthetic_figures/dialogue_eb_decomposition.png)
+
+**Fig. 3. Token-level κ heatmaps** (representative samples; full set of 5×3 in [synthetic_figures/heatmaps/](synthetic_figures/heatmaps/)).
+
+*Code (sample 004):*
+
+![Code heatmap](synthetic_figures/heatmaps/code/sample_004_kappa_heatmap.png)
+
+*Math (sample 051):*
+
+![Math heatmap](synthetic_figures/heatmaps/math/sample_051_kappa_heatmap.png)
+
+*Dialogue (sample 039):*
+
+![Dialogue heatmap](synthetic_figures/heatmaps/dialogue/sample_039_kappa_heatmap.png)
 
 ---
 
