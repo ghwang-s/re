@@ -1,37 +1,24 @@
-**Tab. 1. 26 controlled synthetic settings where ground-truth κ can be computed exactly.** We generate length-48 sequences from a process with hidden state s. Every 3rd position is a Bridge: the token is a deterministic function of s, emitted with prob p ∈ {0.75–0.95} (rest on 2 neighbors), and it updates s, so a single Bridge error derails all downstream Bridges (high κ). All other positions are Gardens: drawn uniformly from ~V/5 candidates without changing s, so errors stay local (low κ). κ is computed by exhaustive enumeration over state transitions. Teacher: 128-dim, 4-layer, 4-head Transformer (192-dim, 5-layer for V ≥ 300), trained 25 epochs (AdamW, lr 3e-4). Student: 2-head Transformer, pre-trained 10 epochs (lr 5e-4) on the same data, then distilled (lr 2e-4). We vary student dim d ∈ {32–72}, depth L ∈ {1, 2}, vocab V ∈ {100–1000}, peak p. Soft KD = forward KL(teacher ‖ student); Hard KD = CE on teacher-sampled hard labels; Hybrid = λ·soft + (1−λ)·hard, λ* from {0.1, 0.3, 0.5, 0.7, 0.9}, KD epochs swept over {1, 2, 3, 5}. Per-position EB = KL on student-generated sequences minus KL on training data. κ corr. = Pearson |r| between teacher confidence and ground-truth κ (0.83–0.99). **In all 26 settings: hard KD achieves lower EB at Bridges, soft KD achieves lower EB at Gardens, hybrid outperforms both.**
+**Tab. 1. Synthetic experiment results across 3 domains.** We synthesize sequences in 3 domains (Code, Math, Dialogue), each with ~120–180 token vocabulary, 512 training + 128 test sequences, and oracle Bridge/Garden annotations. Teacher: 3-layer 128-dim 4-head Transformer, trained 4 epochs (AdamW, lr 3e-4). Student: 2-layer 64-dim, distilled under Hard KD (CE on teacher argmax), Soft KD (forward KL), and Hybrid (λ·soft + (1−λ)·hard). Ground-truth κ computed via path sampling. EB = KL on student-generated sequences minus KL on teacher-forced prefixes. **Hard KD achieves lower Bridge EB in all 3 domains; Soft KD achieves lower Garden EB in Code/Math; Hybrid achieves lowest overall EB.**
 
-| # | Setting | κ corr. | Bridge EB (hard KD) | Bridge EB (soft KD) | Garden EB (hard KD) | Garden EB (soft KD) | Overall EB (hybrid) | λ* |
-|---|---------|---------|-------------|-------------|-------------|-------------|--------|-----|
-| 1 | d=36, L=1, V=200, seq=32, p=.90 | .992 | .0161 | .0179 | .0035 | .0021 | **.0085** | 0.3 |
-| 2 | d=48, L=1, V=200, seq=32, p=.90 | .989 | .0139 | .0140 | .0041 | .0031 | **.0011** | 0.5 |
-| 3 | d=52, L=1, V=200, seq=32, p=.90 | .993 | .0056 | .0071 | −.0015 | −.0021 | **.0000** | 0.7 |
-| 4 | d=72, L=1, V=200, p=.75 | .956 | .0060 | .0068 | .0030 | .0025 | **.0007** | 0.5 |
-| 5 | d=72, L=1, V=200, p=.85 | .947 | .0091 | .0096 | .0002 | .0001 | **−.0020** | 0.7 |
-| 6 | d=64, L=1, V=100, p=.90 | .953 | .0093 | .0095 | −.0013 | −.0015 | **.0013** | 0.5 |
-| 7 | d=52, L=1, V=100, p=.90 | .829 | .0219 | .0223 | .0011 | −.0001 | **.0079** | 0.9 |
-| 8 | d=32, L=2, V=200, p=.85 | .887 | .0778 | .0781 | .0324 | .0281 | **.0302** | 0.5 |
-| 9 | d=48, L=2, V=200, p=.85 | .989 | .0195 | .0220 | .0001 | −.0003 | **.0038** | 0.9 |
-| 10 | d=48, L=2, V=200, p=.90 | .994 | .0098 | .0124 | −.0024 | −.0030 | **.0009** | 0.5 |
-| 11 | d=72, L=1, V=200, p=.90 | .980 | .0042 | .0057 | −.0002 | −.0002 | **.0005** | 0.7 |
-| 12 | d=52, L=1, V=200, p=.95 | .979 | .0212 | .0213 | .0074 | .0030 | **.0068** | 0.5 |
-| 13 | d=36, L=2, V=300, p=.90 | .982 | .0324 | .0345 | .0342 | .0277 | **.0284** | 0.3 |
-| 14 | d=48, L=2, V=300, p=.90 | .988 | .0096 | .0143 | .0077 | .0074 | **.0028** | 0.7 |
-| 15 | d=64, L=2, V=300, p=.90 | .987 | .0061 | .0070 | −.0019 | −.0020 | **−.0017** | 0.1 |
-| 16 | d=36, L=1, V=500, p=.90 | .974 | .0649 | .0671 | .0630 | .0480 | **.0348** | 0.7 |
-| 17 | d=48, L=1, V=500, p=.90 | .986 | .0313 | .0321 | .0132 | .0105 | **.0109** | 0.9 |
-| 18 | d=52, L=1, V=500, p=.90 | .980 | .0169 | .0202 | .0060 | .0054 | **.0050** | 0.9 |
-| 19 | d=48, L=1, V=500, p=.95 | .987 | .0496 | .0561 | .0295 | .0290 | **.0183** | 0.1 |
-| 20 | d=64, L=1, V=500, p=.95 | .969 | .0130 | .0139 | .0021 | .0009 | **−.0032** | 0.7 |
-| 21 | d=64, L=2, V=500, p=.90 | .984 | .0060 | .0077 | .0014 | .0010 | **−.0026** | 0.7 |
-| 22 | d=72, L=2, V=500, p=.90 | .986 | .0109 | .0117 | .0004 | −.0011 | **−.0004** | 0.7 |
-| 23 | d=64, L=1, V=1000, p=.90 | .982 | .0287 | .0308 | .0154 | .0126 | **.0137** | 0.9 |
-| 24 | d=48, L=1, V=1000, p=.95 | .975 | .0818 | .0838 | .0802 | .0738 | **.0462** | 0.5 |
-| 25 | d=64, L=1, V=1000, p=.95 | .992 | .0439 | .0469 | .0448 | .0418 | **.0198** | 0.9 |
-| 26 | d=72, L=1, V=1000, p=.95 | .962 | .0147 | .0192 | .0008 | .0006 | **−.0045** | 0.9 |
+**EB decomposition by oracle role** (lower = less error accumulation):
+
+|Domain|Hard Bridge EB|Soft Bridge EB|Hard Garden EB|Soft Garden EB|
+|-|-|-|-|-|
+|Code|**−0.113**|0.009|0.533|**0.108**|
+|Math|**−0.169**|0.067|0.116|**0.066**|
+|Dialogue|**−0.097**|0.215|−0.186|−0.076|
+
+**κ-confidence correlation and overall EB:**
+
+|Domain|κ-conf. r|Overall EB (Hard)|Overall EB (Soft)|Overall EB (Hybrid)|
+|-|-|-|-|-|
+|Code|**0.91**|0.095|0.085|**0.047**|
+|Math|**0.70**|0.068|0.081|**0.049**|
+|Dialogue|**0.80**|0.032|0.070|**0.001**|
 
 ---
 
-**Synthetic experiment visualizations (5 figures):** see [synthetic_figures/](synthetic_figures/)
+**Synthetic experiment visualizations:** see [synthetic_figures/](synthetic_figures/)
 
 ---
 
